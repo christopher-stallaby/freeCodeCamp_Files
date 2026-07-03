@@ -16,6 +16,10 @@ class Movie:
     def __str__(self):
         return f"{self.title} ({self.year}) - {self.duration} min, {self.director}"
     
+class MediaCatalogue:
+    def __init__(self):
+        self.items = []
+    
 try:
     movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
 except ValueError as e:
