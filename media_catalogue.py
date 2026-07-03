@@ -27,6 +27,9 @@ class MediaCatalogue:
         if not self.items:
             return "Media Catalogue (empty)"
         result = f"Media Catalogue ({len(self.items)} items):\n\n"
+        for index, item in enumerate(self.items, start=1):
+            result += f"{index}. {item}\n"
+        return result
 
 try:
     movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
