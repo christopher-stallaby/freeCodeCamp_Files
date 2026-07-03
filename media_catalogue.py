@@ -19,7 +19,11 @@ class Movie:
 class MediaCatalogue:
     def __init__(self):
         self.items = []
-    
+
+    def add(self, media_item):
+        self.items.append(media_item)        
+
+
 try:
     movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
 except ValueError as e:
