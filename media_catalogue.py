@@ -24,10 +24,9 @@ class MediaCatalogue:
         self.items.append(media_item)
 
     def __str__(self):
-        if len(self.items) == 0:
-            return f"Media Catalogue (empty)"
-        else:
-            return self.items
+        if not self.items:
+            return "Media Catalogue (empty)"
+        result = f"Media Catalogue ({len(self.items)} items):\n\n"
 
 try:
     movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
