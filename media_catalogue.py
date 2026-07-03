@@ -6,6 +6,8 @@ class Movie:
             raise ValueError("Year must be 1895 or later")
         if director == '' or not director.strip():
             raise ValueError("Director cannot be empty")
+        if not (duration > 0):
+            raise ValueError("Duration must be positive")
         self.title = title
         self.year = year
         self.director = director
@@ -17,4 +19,3 @@ class Movie:
 
 movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
 print(movie1)
-
