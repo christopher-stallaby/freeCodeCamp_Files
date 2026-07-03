@@ -21,8 +21,13 @@ class MediaCatalogue:
         self.items = []
 
     def add(self, media_item):
-        self.items.append(media_item)        
+        self.items.append(media_item)
 
+    def __str__(self):
+        if len(self.items) == 0:
+            return f"Media Catalogue (empty)"
+        else:
+            return self.items
 
 try:
     movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
