@@ -1,5 +1,7 @@
 class Movie:
     def __init__(self, title, year, director, duration):
+        if title == '' or not title.strip():
+            raise ValueError("Title cannot be empty")
         self.title = title
         self.year = year
         self.director = director
@@ -11,3 +13,4 @@ class Movie:
 
 movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
 print(movie1)
+
