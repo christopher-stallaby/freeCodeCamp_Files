@@ -49,6 +49,8 @@ try:
     catalogue.add(movie1)
     movie2 = Movie("Man of Steel", 2015, "Christopher Nolan", 175)
     catalogue.add(movie2)
+    series1 = TVSeries("The Chosen", 2020, "Dallas Jenkins", 920, 7, 56)
+    print(series1)
     print(catalogue)
 except ValueError as e:
     print(f"Validation Error: {e}")
