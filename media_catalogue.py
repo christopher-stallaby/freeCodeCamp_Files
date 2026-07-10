@@ -34,6 +34,7 @@ class TVSeries(Movie):
         
 
 class MediaCatalogue:
+    """A catalogue that can store different types of media items."""
     def __init__(self):
         self.items = []
 
