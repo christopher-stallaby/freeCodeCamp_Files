@@ -25,6 +25,10 @@ class TVSeries(Movie):
             raise ValueError("Total episodes must be 1 or greater")
         self.seasons = seasons
         self.total_episodes = total_episodes
+
+    def __str__(self):
+        return f"{self.title} ({self.year}) - {self.seasons} seasons, {self.total_episodes} episodes, {self.duration} min avg, {self.director}"
+        pass
         
 
 class MediaCatalogue:
