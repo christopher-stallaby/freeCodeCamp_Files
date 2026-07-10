@@ -36,6 +36,8 @@ catalogue = MediaCatalogue()
 try:
     movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
     catalogue.add(movie1)
+    movie2 = Movie("Man of Steel", 2015, "Christopher Nolan", 175)
+    catalogue.add(movie2)
     print(catalogue)
 except ValueError as e:
     print(f"Validation Error: {e}")
