@@ -30,8 +30,12 @@ class MediaCatalogue:
         for index, item in enumerate(self.items, start=1):
             result += f"{index}. {item}\n"
         return result
+    
+catalogue = MediaCatalogue()
 
 try:
     movie1 = Movie("The Dark Knight", 2015, "Christopher Nolan", 208)
+    catalogue.add(movie1)
+    print(catalogue)
 except ValueError as e:
     print(f"Validation Error: {e}")
