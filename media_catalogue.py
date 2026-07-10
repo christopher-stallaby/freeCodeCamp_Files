@@ -18,6 +18,7 @@ class Movie:
 
 class TVSeries(Movie):
     def __init__(self, title, year, director, duration, seasons, total_episodes):
+        super().__init__(title, year, director, duration)
         self.seasons = seasons
         self.total_episodes = total_episodes
 
