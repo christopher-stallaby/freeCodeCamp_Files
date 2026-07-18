@@ -66,7 +66,7 @@ try:
     series1 = TVSeries("The Chosen", 2020, "Dallas Jenkins", 90, 7, 56)
     catalogue.add(series1)
     series2 = TVSeries("Doctor Who", 1963, "Stephen Moffat", 40, 75, 1500)
-    catalogue.add('series2')
+    catalogue.add(series2)
     print(catalogue)
 except ValueError as e:
     print(f"Validation Error: {e}")
