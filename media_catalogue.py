@@ -32,6 +32,8 @@ class TVSeries(Movie):
         return f"{self.title} ({self.year}) - {self.seasons} seasons, {self.total_episodes} episodes, {self.duration} min avg, {self.director}"
         pass
         
+class MediaError(Exception):
+    """Custom exception for media-related errors."""
 
 class MediaCatalogue:
     """A catalogue that can store different types of media items."""
