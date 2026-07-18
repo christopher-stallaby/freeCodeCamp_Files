@@ -30,7 +30,6 @@ class TVSeries(Movie):
 
     def __str__(self):
         return f"{self.title} ({self.year}) - {self.seasons} seasons, {self.total_episodes} episodes, {self.duration} min avg, {self.director}"
-        pass
         
 class MediaError(Exception):
     """Custom exception for media-related errors."""
@@ -59,11 +58,17 @@ class MediaCatalogue:
     def get_movies(self):
         movie_list = []
         for item in self.items:
-                print(type(item))
-        for item in self.items:
             if type(item) == Movie:
                 movie_list.append(item)
         return movie_list
+    
+    def get_tv_series(self):
+        series_list = []
+        for item in self.items:
+            if type(item) == TVSeries:
+                series_list.append(item)
+        return series_list
+
     
 catalogue = MediaCatalogue()
 
