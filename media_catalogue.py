@@ -55,8 +55,8 @@ class MediaCatalogue:
         result = f"Media Catalogue ({len(self.items)} items):\n\n"
         if movies:
             result += "=== MOVIES ===\n"
-        for index, item in enumerate(self.items, start=1):
-            result += f"{index}. {item}\n"
+            for i, movie in enumerate(movies, 1):
+                result += f"{i}. {movie}\n"
         return result
     
     def get_movies(self):
@@ -86,8 +86,6 @@ try:
     series2 = TVSeries("Doctor Who", 1963, "Stephen Moffat", 40, 75, 1500)
     catalogue.add(series2)
     print(catalogue)
-    # print(type(catalogue))
-    print(catalogue.get_movies())
 except ValueError as e:
     print(f"Validation Error: {e}")
 except MediaError as e:
