@@ -50,6 +50,9 @@ class MediaCatalogue:
     def __str__(self):
         if not self.items:
             return "Media Catalogue (empty)"
+        movies = self.get_movies()
+        series = self.get_tv_series()
+        
         result = f"Media Catalogue ({len(self.items)} items):\n\n"
         for index, item in enumerate(self.items, start=1):
             result += f"{index}. {item}\n"
