@@ -70,3 +70,5 @@ try:
     print(catalogue)
 except ValueError as e:
     print(f"Validation Error: {e}")
+except MediaError as e:
+    print(f"Media Error: {e}")
