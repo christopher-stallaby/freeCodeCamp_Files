@@ -45,7 +45,7 @@ class MediaCatalogue:
 
     def add(self, media_item):
         if not isinstance(media_item, Movie):
-            raise TypeError("Only Movie or TVSeries instances can be added")
+            raise MediaError("Only Movie or TVSeries instances can be added", media_item)
         self.items.append(media_item)
 
     def __str__(self):
