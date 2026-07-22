@@ -3,6 +3,6 @@ class Product:
         self.name = name
         self.price = price
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name} - ${self.price}"
     
