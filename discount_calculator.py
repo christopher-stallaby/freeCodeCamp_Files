@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 class Product:
     def __init__(self, name: str, price: float) -> None:
         self.name = name
