@@ -21,18 +21,6 @@ The Pawn class should implement a concrete level_up method by adding more moves 
 Note: Standard library modules should be imported without using aliases. Tests related to the Player class will fail until the Pawn class becomes instantiable.
 
 Tests:
-Waiting:11. The Player's make_move method should update the position attribute by adding to it the coordinates of the randomly selected move.
-Waiting:12. The Player's make_move method should append the new position tuple to the path attribute.
-Waiting:13. The Player's make_move method should return the updated position attribute.
-Waiting:14. The Player class should have a level_up method.
-Waiting:15. The Player's level_up method should have a single parameter self.
-Waiting:16. The Player's level_up method should be an abstract method.
-Waiting:17. The Player class should be an abstract class.
-Waiting:18. You should have a class named Pawn.
-Waiting:19. The Pawn class should inherit from the Player class.
-Waiting:20. The Pawn class should have an __init__ method.
-Waiting:21. The Pawn's __init__ method should have a single parameter self.
-Waiting:22. The Pawn's __init__ method should call the parent's __init__ with using the super function.
 Waiting:23. The Pawn's __init__ method should set the moves attribute to a list of tuples representing x, y coordinates, where each coordinate tuple represents a movement of 1 unit in the following directions: up, down, left, right.
 Waiting:24. The Pawn class should have a level_up method.
 Waiting:25. The Pawn's level_up method should add the four diagonal movement of 1 unit to the moves attribute.
@@ -64,7 +52,7 @@ class Player(ABC):
 class Pawn(Player):
     def __init__(self):
         super().__init__()
-        self.moves = [self.position]
+        self.moves = [(1,0), (-1, 0), (0, -1), (0, 1)]
         print(self.moves)
 
     def level_up(self):
