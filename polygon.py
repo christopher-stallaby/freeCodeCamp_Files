@@ -126,7 +126,14 @@ class Rectangle:
         
 
     def get_picture(self):
-        pass
+        if (self._width > 50) or (self._height > 50):
+            return f"Too big for picture."
+        picture = ''
+        for i in range(0, self._height):
+            for j in range(0, self._width):
+                picture += '*'
+            picture += f'\n'
+        return picture
         # return a string that represents the shape using lines of '*'
         # the number of lines should be equal to the height 
         # and the number of each '*' in each line should be equal to the width
