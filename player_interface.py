@@ -2,14 +2,6 @@
 Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
 
 User Stories:
-
-You should define an abstract class named Player that inherits from the abc.ABC class.
-
-The Player class should have an __init__ method that sets:
-
-The moves attribute to an empty list.
-The position attribute to (0, 0).
-The path attribute to a list containing the initial position.
 The Player class should have a method named make_move that:
 
 Uses random.choice to get a random move from the moves attribute (defined in the concrete class).
@@ -29,16 +21,6 @@ The Pawn class should implement a concrete level_up method by adding more moves 
 Note: Standard library modules should be imported without using aliases. Tests related to the Player class will fail until the Pawn class becomes instantiable.
 
 Tests:
-Waiting:1. You should have a class named Player.
-Waiting:2. The Player class should inherit from the ABC class of the abc module.
-Waiting:3. The Player class should have an __init__ method.
-Waiting:4. The Player's __init__ method should have a single parameter self.
-Waiting:5. The Player's __init__ method should set self.moves to an empty list.
-Waiting:6. The Player's __init__ method should set self.position to (0, 0).
-Waiting:7. The Player's __init__ method should set self.path to a list containing the initial position.
-Waiting:8. The Player class should have a make_move method.
-Waiting:9. The Player's make_move method should have a single parameter self.
-Waiting:10. The Player's make_move method should use random.choice to get a random move from the moves attribute.
 Waiting:11. The Player's make_move method should update the position attribute by adding to it the coordinates of the randomly selected move.
 Waiting:12. The Player's make_move method should append the new position tuple to the path attribute.
 Waiting:13. The Player's make_move method should return the updated position attribute.
@@ -54,8 +36,6 @@ Waiting:22. The Pawn's __init__ method should call the parent's __init__ with us
 Waiting:23. The Pawn's __init__ method should set the moves attribute to a list of tuples representing x, y coordinates, where each coordinate tuple represents a movement of 1 unit in the following directions: up, down, left, right.
 Waiting:24. The Pawn class should have a level_up method.
 Waiting:25. The Pawn's level_up method should add the four diagonal movement of 1 unit to the moves attribute.
-1
-Check Your Code
 """
 from abc import ABC, abstractmethod
 import random
@@ -67,10 +47,17 @@ class Player(ABC):
         self.path = [self.position]
 
     def make_move(self):
-        random.choice(self.moves)
+        random_move = random.choice(self.moves)
+        print(random_move)
         # add the values from random.choice to self.position
-        # update self.position attribute
+        new_position = (self.position[0] + random_move[0], self.position[1] + random_move[1])
+        # update self.position attribute        
+        self.position = new_position
+
+        print(self.position)
         # append new position tuple to self.path
+        self.path.append(self.position)
+        print(self.path)
     
     @abstractmethod
     def level_up(self):
@@ -83,10 +70,6 @@ class Pawn(Player):
         print(self.moves)
 
     def level_up(self):
-        # move_up = (self.position[0] + 1, self.position[1])
-        # move_down = (self.position[1] - 1, self.position[1])
-        # move_left = (self.position[0], self.position[1] - 1)
-        # move_right = (self.position[0], self.position[1] + 1)
         move_up_left = (self.position[0] +1, self.position[1] -1)
         move_up_right = (self.position[0] +1, self.position[1] +1)
         move_down_left = (self.position[0] -1, self.position[1] -1)
@@ -96,7 +79,7 @@ class Pawn(Player):
         self.moves.append(move_up_right)
         self.moves.append(move_down_left)
         self.moves.append(move_down_right)
-        print(self.moves)
 
 pawn = Pawn()
 pawn.level_up()
+pawn.make_move()
