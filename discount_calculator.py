@@ -70,4 +70,8 @@ class DiscountEngine:
         return min(prices)
 
 
-product = Product("Wireless Mouse", 50.0)
+
+if __name__ == '__main__':
+    product = Product("Wireless Mouse", 50.0)
+    user_tier = 'Premium'
+    strategies = [PercentageDiscount(10), FixedAmountDiscount(5), PremiumUserDiscount()]
