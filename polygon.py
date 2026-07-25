@@ -74,12 +74,6 @@ Square(side=4)
 
 8
 Tests:
-Waiting:14. An instance of the Rectangle class should have a different string representation after setting new values.
-Waiting:15. An instance of the Square class should have a different string representation after setting new values by using .set_side().
-Waiting:16. An instance of the Square class should have a different string representation after setting new values by using .set_width() or set_height().
-Waiting:17. The .get_picture() method should return a different string representation of a Rectangle instance.
-Waiting:18. The .get_picture() method should return a different string representation of a Square instance.
-Waiting:19. The .get_picture() method should return the string Too big for picture. if the width or height attributes are larger than 50.
 Waiting:20. Rectangle(15,10).get_amount_inside(Square(5)) should return 6.
 Waiting:21. Rectangle(4,8).get_amount_inside(Rectangle(3, 6)) should return 1.
 Waiting:22. Rectangle(2,3).get_amount_inside(Rectangle(3, 6)) should return 0.
@@ -134,15 +128,13 @@ class Rectangle:
                 picture += '*'
             picture += f'\n'
         return picture
-        # return a string that represents the shape using lines of '*'
-        # the number of lines should be equal to the height 
-        # and the number of each '*' in each line should be equal to the width
-        # there should be a new line (\n) at the end of each line.
-        # if the width or height is larger than 50, this should return the string "Too big for picture."
 
     def get_amount_inside(self, shape):
-        pass
-        # returns the number of times {shape} can fit into self.shape
+        bigger = self.get_area()
+        smaller = shape.get_area()
+        result = int(bigger / smaller)
+        return result
+        # returns the number of times {shape} can fit into self
         # for instance, a rectangle with a width of 4 and a height of 8 could fit two squares with sides of 4.
 
     def __str__(self):
