@@ -86,6 +86,7 @@ Waiting:20. Rectangle(15,10).get_amount_inside(Square(5)) should return 6.
 Waiting:21. Rectangle(4,8).get_amount_inside(Rectangle(3, 6)) should return 1.
 Waiting:22. Rectangle(2,3).get_amount_inside(Rectangle(3, 6)) should return 0.
 """
+import math 
 
 class Rectangle:
     def __init__(self, width, height):
@@ -115,8 +116,10 @@ class Rectangle:
         return 2 * (self._width + self._height)
 
     def get_diagonal(self):
-        pass
-        # return square root of width squared plus height squared
+    # return square root of width squared plus height squared
+        result = math.sqrt(self._width**2 + self._height**2)
+        return result
+        
 
     def get_picture(self):
         pass
@@ -170,7 +173,10 @@ class Square(Rectangle):
         return f"Square(side={self._width})"
 
     
-rectangle = Rectangle(5, 10)
-square = Square(4)
+rectangle = Rectangle(3, 6)
+square = Square(5)
+print(rectangle)
+rectangle.set_width = 4
+rectangle.set_height = 8
 print(rectangle)
 print(square)
