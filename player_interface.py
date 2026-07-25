@@ -53,11 +53,9 @@ class Player(ABC):
         new_position = (self.position[0] + random_move[0], self.position[1] + random_move[1])
         # update self.position attribute        
         self.position = new_position
-
-        print(self.position)
         # append new position tuple to self.path
         self.path.append(self.position)
-        print(self.path)
+        return self.position
     
     @abstractmethod
     def level_up(self):
