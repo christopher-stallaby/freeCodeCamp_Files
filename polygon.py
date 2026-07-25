@@ -97,3 +97,91 @@ Waiting:20. Rectangle(15,10).get_amount_inside(Square(5)) should return 6.
 Waiting:21. Rectangle(4,8).get_amount_inside(Rectangle(3, 6)) should return 1.
 Waiting:22. Rectangle(2,3).get_amount_inside(Rectangle(3, 6)) should return 0.
 """
+
+class Rectangle:
+    def __init__(self, width, height):
+        self._height = height
+        self._width = width
+
+    @property
+    def width(self):
+        return self._width
+
+    @width.setter
+    def set_width(self, new_width):
+        self._width = new_width
+
+    @property
+    def height(self):
+        return self._height
+
+    @height.setter
+    def set_height(self, new_height):
+        self._height = new_height
+
+    def get_area(self):
+        return self._width * self._height
+
+    def get_perimeter(self):
+        return 2 * (self._width + self._height)
+
+    def get_diagonal(self):
+        pass
+        # return square root of width squared plus height squared
+
+    def get_picture(self):
+        pass
+        # return a string that represents the shape using lines of '*'
+        # the number of lines should be equal to the height 
+        # and the number of each '*' in each line should be equal to the width
+        # there should be a new line (\n) at the end of each line.
+        # if the width or height is larger than 50, this should return the string "Too big for picture."
+
+    def get_amount_inside(self, shape):
+        pass
+        # returns the number of times {shape} can fit into self.shape
+        # for instance, a rectangle with a width of 4 and a height of 8 could fit two squares with sides of 4.
+
+    def __str__(self):
+        return f"Rectangle(width={self._width}, height={self._height})"
+
+class Square(Rectangle):
+    def __init__(self, side):
+        self._width = side
+        self._height = side
+
+    @property
+    def width(self):
+        super().width
+
+    @width.setter
+    def set_width(self, new_width):
+        self._width = new_width
+        self._height = new_width
+
+    @property 
+    def height(self):
+        super.height()
+    
+    @height.setter
+    def set_height(self, new_height):
+        self._width = new_height
+        self._height = new_height
+
+    @property
+    def side(self):
+        return self._width
+
+    @side.setter
+    def set_side(self, new_side):
+        self._height = new_side
+        self._width = new_side
+
+    def __str__(self):
+        return f"Square(side={self._width})"
+
+    
+rectangle = Rectangle(5, 10)
+square = Square(4)
+print(rectangle)
+print(square)
