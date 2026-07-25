@@ -74,8 +74,6 @@ Square(side=4)
 
 8
 Tests:
-Waiting:12. Rectangle(3, 6).get_diagonal() should return 6.708203932499369.
-Waiting:13. Square(5).get_diagonal() should return 7.0710678118654755.
 Waiting:14. An instance of the Rectangle class should have a different string representation after setting new values.
 Waiting:15. An instance of the Square class should have a different string representation after setting new values by using .set_side().
 Waiting:16. An instance of the Square class should have a different string representation after setting new values by using .set_width() or set_height().
@@ -90,24 +88,30 @@ import math
 
 class Rectangle:
     def __init__(self, width, height):
-        self._height = height
-        self._width = width
+        self.height = height
+        self.width = width
 
     @property
     def width(self):
         return self._width
 
     @width.setter
-    def set_width(self, new_width):
+    def width(self, new_width):
         self._width = new_width
+
+    def set_width(self, new_width):
+        self.width = new_width
 
     @property
     def height(self):
         return self._height
 
     @height.setter
-    def set_height(self, new_height):
+    def height(self, new_height):
         self._height = new_height
+
+    def set_height(self, new_height):
+        self.height = new_height
 
     def get_area(self):
         return self._width * self._height
@@ -139,15 +143,15 @@ class Rectangle:
 
 class Square(Rectangle):
     def __init__(self, side):
-        self._width = side
-        self._height = side
+        self.width = side
+        self.height = side
 
     @property
     def width(self):
         super().width
 
     @width.setter
-    def set_width(self, new_width):
+    def width(self, new_width):
         self._width = new_width
         self._height = new_width
 
@@ -156,7 +160,7 @@ class Square(Rectangle):
         super.height()
     
     @height.setter
-    def set_height(self, new_height):
+    def height(self, new_height):
         self._width = new_height
         self._height = new_height
 
@@ -165,18 +169,61 @@ class Square(Rectangle):
         return self._width
 
     @side.setter
-    def set_side(self, new_side):
+    def side(self, new_side):
         self._height = new_side
         self._width = new_side
+
+    def set_side(self, new_side):
+        self.height = new_side
+        self.width = new_side
 
     def __str__(self):
         return f"Square(side={self._width})"
 
-    
-rectangle = Rectangle(3, 6)
-square = Square(5)
-print(rectangle)
-rectangle.set_width = 4
-rectangle.set_height = 8
-print(rectangle)
-print(square)
+# MY TEST CODE
+# rectangle = Rectangle(3, 6)
+# square = Square(5)
+# print(rectangle)
+# rectangle.set_width = 4
+# rectangle.set_height = 8
+# print(rectangle)
+# print(square)
+
+# PROVIDED TEST CODE
+rect = Rectangle(10, 5)
+print(rect.get_area())
+rect.set_height(3)
+print(rect.get_perimeter())
+print(rect)
+print(rect.get_picture())
+
+sq = Square(9)
+print(sq.get_area())
+sq.set_side(4)
+print(sq.get_diagonal())
+print(sq)
+print(sq.get_picture())
+
+rect.set_height(8)
+rect.set_width(16)
+print(rect.get_amount_inside(sq))
+
+
+
+# EXPECTED OUTPUT
+# 50
+# 26
+# Rectangle(width=10, height=3)
+# **********
+# **********
+# **********
+
+# 81
+# 5.656854249492381
+# Square(side=4)
+# ****
+# ****
+# ****
+# ****
+
+# 8
