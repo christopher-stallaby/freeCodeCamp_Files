@@ -82,3 +82,6 @@ if __name__ == '__main__':
 
     engine = DiscountEngine(strategies)
     best_price = engine.calculate_best_price(product, user_tier)
+    print(
+        f"Best price for {product.name} for {user_tier} user: ${best_price:.2f}"
+    )
