@@ -74,17 +74,6 @@ Square(side=4)
 
 8
 Tests:
-Waiting:1. You should have a Rectangle class.
-Waiting:2. You should have a Square class.
-Waiting:3. The Square class should be a subclass of the Rectangle class.
-Waiting:4. The Square class should be a distinct class from the Rectangle class.
-Waiting:5. A square object should be an instance of the Square class and the Rectangle class.
-Waiting:6. The string representation of Rectangle(3, 6) should be Rectangle(width=3, height=6).
-Waiting:7. The string representation of Square(5) should be Square(side=5).
-Waiting:8. Rectangle(3, 6).get_area() should return 18.
-Waiting:9. Square(5).get_area() should return 25.
-Waiting:10. Rectangle(3, 6).get_perimeter() should return 18.
-Waiting:11. Square(5).get_perimeter() should return 20.
 Waiting:12. Rectangle(3, 6).get_diagonal() should return 6.708203932499369.
 Waiting:13. Square(5).get_diagonal() should return 7.0710678118654755.
 Waiting:14. An instance of the Rectangle class should have a different string representation after setting new values.
