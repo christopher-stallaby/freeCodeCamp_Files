@@ -12,4 +12,7 @@ class LinkedList:
             return True
         else:
             return False
-    
+
+
+my_list = LinkedList()
+print(my_list.is_empty())
