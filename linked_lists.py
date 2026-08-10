@@ -19,6 +19,8 @@ class LinkedList:
             self.head = node
         else:
             current_node = self.head
+            while current_node.next is not None:
+                current_node = current_node.next
 
 
 my_list = LinkedList()
