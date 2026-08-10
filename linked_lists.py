@@ -5,3 +5,4 @@ class LinkedList:
             self.next = None
     def __init__(self):
         self.length = 0
+        self.head = None
