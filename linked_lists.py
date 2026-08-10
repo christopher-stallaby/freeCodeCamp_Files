@@ -6,3 +6,10 @@ class LinkedList:
     def __init__(self):
         self.length = 0
         self.head = None
+
+    def is_empty(self):
+        if self.length == 0:
+            return True
+        else:
+            return False
+    
