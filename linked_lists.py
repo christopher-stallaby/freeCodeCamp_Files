@@ -13,6 +13,10 @@ class LinkedList:
         else:
             return False
 
+    def add(self, element):
+        node = self.Node(element)
+        
+
 
 my_list = LinkedList()
 print(my_list.is_empty())
