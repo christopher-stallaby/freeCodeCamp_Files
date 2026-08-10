@@ -15,7 +15,8 @@ class LinkedList:
 
     def add(self, element):
         node = self.Node(element)
-        
+        if self.is_empty():
+            self.head = node
 
 
 my_list = LinkedList()
