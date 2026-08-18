@@ -26,6 +26,8 @@ class LinkedList:
 
     def remove(self, element):
         previous_node = None
+        current_node = self.head
+        
 
 
 my_list = LinkedList()
