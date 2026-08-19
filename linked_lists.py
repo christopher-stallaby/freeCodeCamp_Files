@@ -29,6 +29,7 @@ class LinkedList:
         current_node = self.head
         while current_node is not None and current_node.element != element:
             previous_node = current_node
+            current_node = current_node.next
 
 
 
