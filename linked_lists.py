@@ -36,7 +36,7 @@ class LinkedList:
             previous_node.next = current_node.next
         else:
             self.head = current_node.next
-        
+        self.length -= 1
 
 
 my_list = LinkedList()
