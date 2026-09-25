@@ -34,6 +34,8 @@ class LinkedList:
             return
         elif previous_node is not None:
             previous_node.next = current_node.next
+        else:
+            self.head = current_node.next
         
 
 
