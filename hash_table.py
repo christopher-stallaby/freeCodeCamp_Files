@@ -17,22 +17,23 @@ The HashTable class should have four instance methods: hash, add, remove, and lo
 The hash method should:
 Take a string as a parameter.
 Return a hashed value computed as the sum of the Unicode (ASCII) values of each character in the string. You can use the ord function for this computation.
-The add method should:
 
+The add method should:
 Take two arguments representing a key-value pair, and compute the hash of the key.
 Use the computed hash value as a key to store a dictionary containing the key-value pair inside the collection dictionary.
-If multiple keys produce the same hash value, their key-value pairs should be stored in the existing nested dictionary under the same hash value.
-The remove method should:
+If multiple keys produce the same hash value, their key-value pairs should be stored in the existing nested dictionary under the same hash value. ### REVISIT
 
+The remove method should:
 Take a key as its argument and compute its hash.
 Confirm if the key exists in the collection.
 Remove the corresponding key-value pair from the hash table.
 If the key does not exist in the collection, it should not raise an error or remove anything.
-The lookup method should:
 
+The lookup method should:
 Take a key as its argument.
 Compute the hash of the key, and return the corresponding value stored inside the hash table.
 If the key does not exist in the collection, it should return None.
+
 Tests:
 Waiting:1. You should define a HashTable class.
 Waiting:2. When a new instance of the HashTable class is created, its collection attribute should be initialized to an empty dictionary.
@@ -58,4 +59,28 @@ Waiting:21. When you add ('rose', 'flower') to the hash table, its collection at
 Waiting:22. When you add a key that hashes to the same value as an existing key, like fcc and cfc, the collection should look like this: { 300: { 'fcc': 'coding', 'cfc':  'chemical' }}.
 """
 
+class HashTable:
+    def __init__(self):
+        self.collection = {}
 
+    def hash(self, string):
+        for character in string:
+            hash += ord(character)
+        return hash
+
+    def add(self, key, value):
+        store_key = hash(key)
+        self.collection.append([store_key, value])
+
+    def remove(self, key):
+        if key in self.collection.keys():
+            self.collection.remove(key)
+
+    def lookup(self, key):
+        for character in key:
+            hash += ord(character)
+
+        if hash in self.collection:
+            return self.collection.items(hash)
+        else: 
+            return None
