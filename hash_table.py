@@ -35,10 +35,6 @@ Compute the hash of the key, and return the corresponding value stored inside th
 If the key does not exist in the collection, it should return None.
 
 Tests:
-Waiting:1. You should define a HashTable class.
-Waiting:2. When a new instance of the HashTable class is created, its collection attribute should be initialized to an empty dictionary.
-Waiting:3. The HashTable class should have a hash method.
-Waiting:4. The hash method should take a string as a parameter.
 Waiting:5. The hash method should take a string as its argument and return the sum of the Unicode values of each character in the string.
 Waiting:6. The HashTable class should have an add method.
 Waiting:7. The add method should take a key and value as parameters.
@@ -64,8 +60,7 @@ class HashTable:
         self.collection = {}
 
     def hash(self, string):
-        for character in string:
-            hash += ord(character)
+        hash = sum(ord(character) for character in string)
         return hash
 
     def add(self, key, value):
