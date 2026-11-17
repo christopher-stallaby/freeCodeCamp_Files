@@ -35,11 +35,6 @@ Compute the hash of the key, and return the corresponding value stored inside th
 If the key does not exist in the collection, it should return None.
 
 Tests:
-Waiting:5. The hash method should take a string as its argument and return the sum of the Unicode values of each character in the string.
-Waiting:6. The HashTable class should have an add method.
-Waiting:7. The add method should take a key and value as parameters.
-Waiting:8. The HashTable class should have a remove method.
-Waiting:9. The remove method should take a key as a parameter.
 Waiting:10. When you try to remove a key that does not exist in the collection, it should not raise an error or remove anything.
 Waiting:11. If multiple keys hash to the same index, the remove method should only delete the specific key-value pair and not the entire dictionary at that index.
 Waiting:12. The HashTable class should have a lookup method.
@@ -64,12 +59,21 @@ class HashTable:
         return hash
 
     def add(self, key, value):
-        store_key = hash(key)
-        self.collection.append([store_key, value])
+        hash_value = self.hash(key)
+        if hash_value not in self.collection:
+            self.collection[hash_value] = {}
+        self.collection[hash_value][key] = value
+
+        self.collection.append([hash_value, value])
 
     def remove(self, key):
-        if key in self.collection.keys():
-            self.collection.remove(key)
+        hash_value = self.hash(key)
+        bucket = self.collection.get(hash_value)
+
+        if bucket is not None:
+            bucket.pop(key, None)
+            if not bucket:
+                del self.collection[hash_value]
 
     def lookup(self, key):
         for character in key:
