@@ -35,19 +35,7 @@ Compute the hash of the key, and return the corresponding value stored inside th
 If the key does not exist in the collection, it should return None.
 
 Tests:
-Waiting:10. When you try to remove a key that does not exist in the collection, it should not raise an error or remove anything.
-Waiting:11. If multiple keys hash to the same index, the remove method should only delete the specific key-value pair and not the entire dictionary at that index.
-Waiting:12. The HashTable class should have a lookup method.
-Waiting:13. The lookup method should take a key as the parameter.
-Waiting:14. HashTable().hash('golf') should return 424.
-Waiting:15. HashTable().add('golf', 'sport') should add the key-value pair to the collection at key 424.
-Waiting:16. HashTable().add('dear', 'friend') and HashTable().add('read', 'book') should add both the key-value pairs to the collection at index 412 as a nested dictionary.
-Waiting:17. When a key exists in the hash table, the remove() method should remove the given key and its corresponding value from the collection.
-Waiting:18. When the 'golf', 'sport' key-value pair exists in the hash table, HashTable().lookup('golf') should return sport.
-Waiting:19. When the 'golf', 'sport' key-value pair does not exist in the collection, HashTable().lookup('golf') should return None.
 Waiting:20. When the 'fcc' key exists in the collection, HashTable().lookup('cfc') should return None.
-Waiting:21. When you add ('rose', 'flower') to the hash table, its collection attribute should look like this: { 441: { 'rose': 'flower' }}.
-Waiting:22. When you add a key that hashes to the same value as an existing key, like fcc and cfc, the collection should look like this: { 300: { 'fcc': 'coding', 'cfc':  'chemical' }}.
 """
 
 class HashTable:
@@ -76,10 +64,8 @@ class HashTable:
                 del self.collection[hash_value]
 
     def lookup(self, key):
-        for character in key:
-            hash += ord(character)
-
-        if hash in self.collection:
-            return self.collection.items(hash)
+        hash_value = self.hash(key)
+        if hash_value in self.collection:
+            return self.collection[hash_value][key]
         else: 
             return None
