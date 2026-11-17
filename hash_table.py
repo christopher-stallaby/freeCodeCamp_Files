@@ -33,9 +33,6 @@ The lookup method should:
 Take a key as its argument.
 Compute the hash of the key, and return the corresponding value stored inside the hash table.
 If the key does not exist in the collection, it should return None.
-
-Tests:
-Waiting:20. When the 'fcc' key exists in the collection, HashTable().lookup('cfc') should return None.
 """
 
 class HashTable:
@@ -65,7 +62,5 @@ class HashTable:
 
     def lookup(self, key):
         hash_value = self.hash(key)
-        if hash_value in self.collection:
-            return self.collection[hash_value][key]
-        else: 
-            return None
+        bucket = self.collection.get(hash_value)
+        return bucket.get(key) if bucket is not None else None
